@@ -1,37 +1,43 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('Spencer');
-  const [person, setPerson] = useState('');
-
-  
-  const clickHandler = () => {
-    setName('Spenmo');
-  };
+  const [todos, setTodos] = useState([
+    {task: 'eat beans', key: '1'},
+    {task: 'make money', key: '2'},
+    {task: 'slap bass', key: '3'}
+  ]);
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Heyoo!</Text>
-      </View>
+      {/* Header */}
+      <View style={styles.content}>
+        {/* to from */}
 
+        <View style={styles.list}>
+
+          <FlatList 
+            data={todos}
+            renderItem={({ item }) => (
+              <Text>{item.task}</Text>
+            )}
+          />
+
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  header: {
-    backgroundColor: 'pink',
-    padding: 20,
+  content: {
+    padding: 40,
   },
-  buttonContainer: {
+  list: {
     marginTop: 20,
   }
+
 });
