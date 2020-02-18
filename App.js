@@ -5,6 +5,7 @@ export default function App() {
   const [name, setName] = useState('Spencer');
   const [person, setPerson] = useState('');
 
+  
   const clickHandler = () => {
     setName('Spenmo');
   };
