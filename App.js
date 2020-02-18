@@ -9,10 +9,10 @@ export default function App() {
     {task: 'slap bass', key: '3'}
   ]);
 
+
   return (
     <View style={styles.container}>
       <Header />
-      
       <View style={styles.content}>
         {/* to from */}
 
